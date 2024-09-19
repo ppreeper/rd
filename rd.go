@@ -92,7 +92,7 @@ func (a *DAPP) Filewalker() error {
 			progressbar.OptionSetElapsedTime(false),
 			progressbar.OptionSetPredictTime(false),
 			progressbar.OptionSetWidth(15),
-			progressbar.OptionSetDescription("scanning files"),
+			progressbar.OptionSetDescription("scanning for directories"),
 		)
 		err := filepath.WalkDir(dir, func(path string, d os.DirEntry, err error) error {
 			if err != nil {
@@ -136,12 +136,10 @@ func (a *DAPP) TrimDirs() error {
 		progressbar.OptionSetDescription("removing empty directories"),
 	)
 	for _, d := range dirList {
-		// fmt.Println(i, r.Path)
 		if err := os.Remove(d.Path); err != nil {
 			if a.Verbose {
 				fmt.Println("error removing directory:", err)
 			}
-			continue
 		}
 		bar.Add(1)
 	}
