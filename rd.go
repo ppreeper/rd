@@ -124,7 +124,7 @@ func (a *DAPP) TrimDirs() error {
 		return fmt.Errorf("error retrieving directory list: %w", err)
 	}
 
-	bar := progressbar.NewOptions(-1,
+	bar := progressbar.NewOptions(len(dirList),
 		progressbar.OptionSetWriter(os.Stderr),
 		progressbar.OptionClearOnFinish(),
 		progressbar.OptionShowCount(),
