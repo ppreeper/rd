@@ -2,6 +2,18 @@
 
 Remove empty directories.
 
+## Installation
+
+```bash
+go install github.com/ppreeper/rd@latest
+```
+
+Or build from source:
+
+```bash
+go build -o rd .
+```
+
 ## Usage
 
 ```bash
